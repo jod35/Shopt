@@ -1,1 +1,3 @@
-.here/
+/.vscode
+/here
+/__pycache__
