@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/dashboard.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+    <title>Shop |{{title}}</title>
+</head>
+<body>
+    <header class="dashboard-header">
+        <div class="logo">
+            <a href="{{url_for('user_dashboard')}}"><h1>Shop</h1></H1></a>
+        <a href="{{url_for('logout')}}">Sign Out</a>
+        </div>
+    </header>
+    <div class="dashboard">
+        <div class="options">
+            <div class="list-group">
+                <li><a href="{{url_for('products_page')}}" class="list-group-item" id="option">Products</a></li>
+                <li><a href="" class="list-group-item" id="option">Prices</a></li>
+                <li><a href="{{url_for('suppliers_page')}}" class="list-group-item" id="option">Suppliers</a></li>
+                <li><a href="" class="list-group-item" id="option">Purchases</a></li>
+                <li><a href="" class="list-group-item" id="option">Transactions</a></li>
+               
+            </div>
+        </div>
+        <div class="dashboard-body">
+            {% block content %}
+            
+            {% endblock content %}
+        </div>
+    </div>
+ 
+</body>
+</html>

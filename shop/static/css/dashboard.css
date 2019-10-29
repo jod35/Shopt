@@ -1,0 +1,67 @@
+*{
+    font-family: monospace;
+}
+body{
+background-image:url('images/Symbolics-1.jpg');
+}
+.dashboard-header{
+    height: 100px;
+}
+.dashboard{
+    min-height: 500px;
+    background-color: rgba(255, 255, 255, 0.404);
+    display: flex;
+}
+.options{
+    width:30%;
+    background-color: rgba(30, 143, 255, 0.295);
+}
+.list-group-item{
+    background-color: rgba(30, 143, 255, 0.288);
+}
+.options a{
+    color: white;
+}
+.options a:hover{
+    background-color: dodgerblue;
+    text-decoration: none;
+    font-weight: bolder;
+}
+.prod{
+    display: flex;
+    padding: 20px;
+}
+.tab{
+    width: 60%;
+}
+.prod{
+    display: flex;
+    justify-content: space-between;
+}
+.actions{
+    margin-left: 300px;
+    background-color: rgba(30, 143, 255, 0.13);
+    width: 400px;
+}
+.actions a{
+    color: white;
+}
+.actions a:hover{
+    background-color: dodgerblue;
+    font-weight: bolder;
+color: white;
+}
+
+.pform{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    width: 70%;
+    margin-left: 200px;
+    border-radius: 10px;
+    color: white;
+    background-color:rgba(30, 143, 255, 0.164);
+}
+.second{
+    margin-left: 20px;
+}

@@ -1,0 +1,108 @@
+*{
+    font-family: monospace;
+
+}
+body{
+    background-image: url('images/Symbolics-1.jpg');
+}
+.main-body{
+    min-height:500px;
+    padding: 25px;
+}
+header{
+    background-color: dodgerblue;
+    color: white;
+    padding: 20px;
+}
+header a{
+    color: white;
+    padding: 20px;
+}
+.logo{
+    display: flex;
+    justify-content: space-between;
+}
+.logo a{
+    color: rgba(255, 255, 255, 0.932);
+}
+.logo a:hover{
+    color: white;
+}
+nav{
+    text-align: center;
+    background-color: rgb(29, 177, 177);
+    padding: 12px;
+}
+.index{
+    color: white;
+    padding: 20px;
+    height: 500px;
+}
+.welcome{
+    text-align: center;
+    padding: 100px;
+    height:200px;
+}
+.check-out{
+    text-align: center;
+}
+
+.mybtn{
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 16px;
+}
+
+.mybtn:hover{
+    background-color: rgb(29, 177, 177);
+    color: white;
+}
+.about{
+    display: flex;
+    padding: 20px;
+    
+}
+.box{
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.342);
+    margin: 30px;
+    color: white;
+}
+.form{
+    margin: auto;
+    width: 400px;
+    padding: 20px;
+    margin: auto;
+    border-radius: 10px;
+    color: white;
+    background-color:rgba(30, 143, 255, 0.164);
+}
+footer{
+    background-color: rgba(30, 143, 255, 0.377);
+    color: white;
+    padding: 25px;
+}
+.form a{
+    color: white;
+}
+
+th{
+    background-color:dodgerblue;
+    border: none;
+    color:white;       
+}
+td{
+    color: white;
+    background-color: rgba(30, 143, 255, 0.356);
+}
+li{
+list-style-type: none;
+}
+input{
+    color: dodgerblue;
+}
+
+.search{
+    color: white;
+    padding: 30px;
+}

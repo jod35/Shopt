@@ -1,0 +1,58 @@
+{% extends 'dashboard.html' %}
+{% block content %}
+
+        <div class="prod">
+                <div class="tab">
+                        <table class="table">
+                            <thead>
+                                <th>Number of Products</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{count}} products in shop.</td>
+                                </tr>
+                            </tbody>
+                            </table>
+                    </div>
+                    <div class="actions">
+                        <div class="list-group">
+                            <li class="list-group-item"><a href="{{url_for('add_supplier')}}">Add New Suppliers</a> </li>
+                            <li class="list-group-item"><a href="#">Manage Supplier Info</a> </li>
+                        </div>
+                    </div>
+        </div>
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Recently Added Suppliers</th>
+
+                    </tr>
+                </thead>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Supplier Id</th>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>Commodity Types</th>
+                            <th>Nationality</th>
+                            <th>Supplier Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {% for supplier in suppliers  %}
+                          <tr>
+                              <td>pdt{{supplier.id}}</td>
+                              <td>{{supplier.name}}</td>
+                              <td>{{supplier.markup}}%</td>
+                              <td>{{supplier.discount}}%</td>
+                              <td>{{supplier.cost_price}}</td>
+                              <td>{{supplier.selling_price}}</td>
+                          </tr>
+                      {% endfor %}
+                    </tbody>
+                </table>
+            </table>
+        </div>
+{% endblock content %}

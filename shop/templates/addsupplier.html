@@ -1,0 +1,62 @@
+{% extends 'dashboard.html' %}
+{% block content %}
+{%with messages=get_flashed_messages()%}
+{% if mesages %}
+{% for message in messages %}
+    <center>
+        <div class="flash-message">
+            {{ message }}
+        </div>
+    </center>
+{% endfor %}
+{% endif %}
+{%endwith%}       
+        <form action="{{url_for('add_supplier')}}" method="post">
+                <center><h3 style="color: white;">Create New Supplier</h3></center>
+         <div class="pform">
+              
+             <div class="first">
+            
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" class="form-control" required placeholder="Name">
+            <label for="type">Type</label>
+            
+            <select name="type" id="type" class="form-control" required>
+                <option >Foreign or Local</option>
+                <option value="Local">Local</option>
+                <option value="Foreign">Foreign</option>
+            </select>
+
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" required class="form-control" placeholder="Email">
+            
+            <label for="contact">Phone Contact</label>
+            <input type="text" name="contact" id="contact" required class="form-control" placeholder="Phone Contact">
+            
+           <p>Address</p>
+            <textarea name="address" id="address" cols="30" rows="10"></textarea>
+        
+            
+          
+             </div>
+             <!-- flexed form -->
+             <div class="second">
+                    <label for="nationality">Nationality</label>
+                    <select name="nationality" id="type" class="form-control" required>
+                            <option >Choose A coutry</option>
+                            {% for country in countries %}
+                                <option value="{{country}}">{{country}}</option>
+                            {% endfor %}
+                    </select>
+              
+               <br><br>
+               
+               <center><input type="submit" value="Add Product" class=" mybtn btn"></center>
+                </div>
+             </div>
+         </div>
+             
+        
+    
+        </form>
+{% endblock content %}
