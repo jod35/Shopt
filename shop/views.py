@@ -122,9 +122,25 @@ def add_supplier():
 @app.route('/shop/products/manage',methods=['GET', 'POST'])
 def manage_products():
    search=request.form.get('search')
-   results=Product.query.filter(Product.name.contains(search)).all()
-   
+   results=Product.query.filter_by(name=search)
+
    return render_template('manageproducts.html',results=results)
 
+@app.route('/shop/products/manage/<int:id>',methods=['GET', 'POST'])
+def manage_product(id):
+   product=Product.query.get_or_404(id)
+   if request.method == 'POST':
+      product.name=request.form.get('name')
+      product.category=request.form.get('category')
+      product.comm_type=request.form.get('comm_type')
+      product.unit=request.form.get('unit')
+      product.code1=request.form.get('code1')
+      product.code2=request.form.get('code2')
+      product.cod3=request.form.get('code3')
+
+      db.session.commit()
+      flash("Details Updated Suceesfully")
+      return redirect(url_for('products_page'))
+   return render_template('prodinfo.html',product=product)
 
    

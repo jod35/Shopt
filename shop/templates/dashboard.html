@@ -28,6 +28,17 @@
             </div>
         </div>
         <div class="dashboard-body">
+            {%with messages=get_flashed_messages()%}
+            {% if mesages %}
+            {% for message in messages %}
+                <center>
+                    <div class="flash-message">
+                        {{ message }}
+                    </div>
+                </center>
+            {% endfor %}
+            {% endif %}
+            {%endwith%} 
             {% block content %}
             
             {% endblock content %}

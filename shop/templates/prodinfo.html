@@ -1,0 +1,102 @@
+{% extends 'dashboard.html' %}
+{% block content %}
+       <form action="/shop/products/manage/{{product.id}}" method="post">
+            {%with messages=get_flashed_messages()%}
+                {% if mesages %}
+                {% for message in messages %}
+                    <center>
+                        <div class="flash-message">
+                            {{ message }}
+                        </div>
+                    </center>
+                {% endfor %}
+                {% endif %}
+                {%endwith%} 
+                <center><h3 style="color: white;">Product Details</h3></center>
+         <div class="pform">
+              
+             <div class="first">
+            <label for="type">Product Category</label>
+            <select name="category" id="category" class="form-control" >
+                <option value="">{{product.category}}</option>
+                <option >Product Category</option>
+                <option value="Food">Food</option>
+                <option value="Toiletries">Toiletries</option>
+                <option value="Laundry">Laundry</option>
+                <option value="Bakery">Bakery</option>
+                <option value="Jewelery">Jewelery</option>
+                <option value="Mechanics">Mechanics</option>
+                <option value="Compting">Computing</option>
+                <option value="Phones">Phones & Accesories</option>
+                <option value="Housing">Housing</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Medical">Medical</option>
+            </select>
+            <br>    
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" class="form-control" required placeholder="Product Name" value="{{product.name}}">
+            <label for="type">Type</label>
+            
+            <select name="comm_type" id="comm_type" class="form-control" >
+
+                <option >{{product.comm_type}}</option>
+                <option value="Local">Local</option>
+                <option value="Foreign">Foreign</option>
+            </select>
+
+            <label for="cost_price">Cost Price</label>
+            <input type="text" name="cost_price" id="cost_price" required class="form-control" value="UGX{{product.cost_price}}" readonly>
+            
+            <label for="markup">MarkUp</label>
+            <input type="text" name="markup" id="markup" required class="form-control" value="{{product.markup}}%" readonly>
+            
+            <label for="discount">Discount</label>
+            <input type="text" name="discount" id="discount" required class="form-control" value="{{product.discount}}%" readonly>
+            
+            <label for="password">Selling Price</label>
+            <input type="text" name="stock" id="stock" class="form-control" readonly value="{{product.selling_price}}" readonly>
+            <br>
+           
+            
+          
+             </div>
+             <!-- flexed form -->
+             <div class="second">
+                <div class="first">
+                <label for="unit">Product Unit</label>
+                <input type="text" name="unit" id="unit" class="form-control" value="{{product.unit}}" >
+                <label for="tax">Tax</label>
+                <select name="tax" id="tax" class="form-control" required>
+                    <option >{{product.tax}}</option>
+                    <option value="Local">Tax</option>
+                    <option value="Imported">VAT_18%</option>
+                </select>
+               <br>
+               <h4>Product Barcodes</h4>
+               <label for="name">Bar Code 1</label>
+               <input type="text" name="code1" id="code1" required class="form-control" value="{{product.code1}}">
+
+               <label for="name">Bar Code 2</label>
+               <input type="text" name="code2" id="code2"  required class="form-control" value="{{product.code2}}">
+               
+               <label for="name">Barcode 3</label>
+               <input type="text" name="code3" id="code3" required class="form-control" value="{{product.code3}}">
+               <br><br>
+               <center>
+                   <input type="submit" value="Save" class=" mybtn btn">
+                   <a href="" class="btn btn-danger">Delete </a>
+                   <br>
+                   <br>
+                   <a href="{{url_for('manage_products')}}" class="btn btn-primary">BACK</a>
+              </center>
+               
+              
+               
+            </div>
+             </div>
+         </div>
+             
+        
+    
+        </form>
+{% endblock content %}

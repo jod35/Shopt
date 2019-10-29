@@ -29,6 +29,7 @@ class Product(db.Model):
     discount=db.Column(db.Text,nullable=False)
     selling_price=db.Column(db.Text,nullable=False)
     stock=db.Column(db.Text,nullable=False)
+    unit=db.Column(db.Text)
     tax=db.Column(db.String(255),nullable=False)
     code1=db.Column(db.String(255),nullable=False)
     code2=db.Column(db.String(255),nullable=False)
