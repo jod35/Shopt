@@ -5,6 +5,7 @@ from flask_login import LoginManager
 from shop.config import DevConfig
 from flask_migrate import Migrate
 
+
 app=Flask(__name__)
 app.config.from_object(DevConfig)
 
@@ -17,5 +18,6 @@ migrate=Migrate(app,db)
 
 
 from shop import views
+from admin import views
 
 

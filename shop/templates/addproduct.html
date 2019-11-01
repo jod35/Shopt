@@ -3,10 +3,10 @@
        
         <form action="{{url_for('add_product')}}" method="post">
                 {%with messages=get_flashed_messages()%}
-                {% if mesages %}
+                {% if messages %}
                 {% for message in messages %}
                     <center>
-                        <div class="flash-message">
+                        <div class="alert alert-success">
                             {{ message }}
                         </div>
                     </center>
@@ -42,9 +42,8 @@
                 <option value="Local">Local</option>
                 <option value="Imported">Imported</option>
             </select>
-
             <label for="cost_price">Cost Price</label>
-            <input type="number" name="cost_price" id="cost_price" required class="form-control" placeholder="UGX 0.0000">
+<input type="number" name="cost_price" id="cost_price" required class="form-control" placeholder="UGX 0.0000">
             
             <label for="markup">MarkUp</label>
             <input type="number" name="markup" id="markup" required class="form-control" placeholder="0.0000%">

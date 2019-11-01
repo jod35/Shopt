@@ -7,6 +7,16 @@ login_manager.login_view='login'
 
 #many to many realtioship of user and a suppier
 
+class Admin(db.Model,UserMixin):
+    id=db.Column(db.Integer(),primary_key=True)
+    name=db.Column(db.String(40),nullable=False,unique=True)
+    age=db.Column(db.Integer(),nullable=False)
+    email=db.Column(db.String(255),nullable=False,unique=True)
+    password=db.Column(db.Text,nullable=False)
+
+    def __repr__(self):
+        return "admin user {}".format(self.name)
+
 class User(db.Model,UserMixin):
     id=db.Column(db.Integer(),primary_key=True)
     username=db.Column(db.String(40),unique=True,nullable=False)

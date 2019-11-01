@@ -75,7 +75,7 @@ nav{
     margin: auto;
     border-radius: 10px;
     color: white;
-    background-color:rgba(30, 143, 255, 0.164);
+    background-color:rgba(30, 143, 255, 0.432);
 }
 footer{
     background-color: rgba(30, 143, 255, 0.377);
@@ -105,4 +105,7 @@ input{
 .search{
     color: white;
     padding: 30px;
+}
+.menu{
+    width: 60%;
 }

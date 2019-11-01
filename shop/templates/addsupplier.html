@@ -1,7 +1,18 @@
 {% extends 'dashboard.html' %}
 {% block content %}
       
-        <form action="/shop/products/manage/{{product.id}}" method="post">
+        <form action="" method="post">
+              {%with messages=get_flashed_messages()%}
+                {% if messages %}
+                {% for message in messages %}
+                    <center>
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    </center>
+                {% endfor %}
+                {% endif %}
+                {%endwith%} 
                 <center><h3 style="color: white;">Create New Supplier</h3></center>
          <div class="pform">
               
@@ -41,7 +52,7 @@
               
                <br><br>
                
-               <center><input type="submit" value="Add Product" class=" mybtn btn"></center>
+               <center><input type="submit" value="Save" class=" mybtn btn"></center>
                 </div>
              </div>
          </div>

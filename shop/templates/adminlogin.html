@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shop |Admin Login</title>
+</head>
+<body>
+    <center>
+        <form action="{{url_for('admin_login')}}" method="post">
+        <div class="form">
+           <h3>Admin Login</h3>
+           
+           <label for="email">Email</label>
+           <input type="text" name="email" id="" class="form-control" placeholder="Email">
+           <br>
+           <label for="password">Password</label>
+           <input type="password" name="password" id="" class="form-control" placeholder="Password">
+           <br>
+           <input type="submit" value="Login" class="form-control  btn-primary">
+           </form>
+        </div>
+    </center>
+</body>
+</html>

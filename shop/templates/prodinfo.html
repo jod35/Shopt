@@ -1,20 +1,19 @@
 {% extends 'dashboard.html' %}
 {% block content %}
        <form action="/shop/products/manage/{{product.id}}" method="post">
-            {%with messages=get_flashed_messages()%}
-                {% if mesages %}
+                <center><h3 style="color: white;">Product Details</h3></center>
+         <div class="pform">
+                {%with messages=get_flashed_messages()%}
+                {% if messages %}
                 {% for message in messages %}
                     <center>
-                        <div class="flash-message">
+                        <div class="alert alert-success">
                             {{ message }}
                         </div>
                     </center>
                 {% endfor %}
                 {% endif %}
                 {%endwith%} 
-                <center><h3 style="color: white;">Product Details</h3></center>
-         <div class="pform">
-              
              <div class="first">
             <label for="type">Product Category</label>
             <select name="category" id="category" class="form-control" >
