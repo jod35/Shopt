@@ -13,7 +13,7 @@ def admin_login():
        login_user(admin)
        return redirect(url_for('admin_home'))
 
-   return render_template('adminlogin.html')
+   return render_template('adminlogin.html',title="Admin Login Page")
 
 @app.route('/admin/shop/admin/home')
 def admin_home():

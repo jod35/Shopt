@@ -48,7 +48,7 @@ def login():
 @app.route('/shop/home/')
 @login_required
 def user_dashboard():
-   return render_template('dashboard.html')
+   return render_template('dashboard.html',title="User Dashboard")
 
 
 @app.route('/shop/products/')
@@ -117,7 +117,7 @@ def add_product():
       flash("Product Added Successfully")
       return redirect(url_for('add_product'))
 
-   return render_template('addproduct.html')
+   return render_template('addproduct.html',title="Add A Product To Your Shop")
 
 # suppliers page
 
@@ -159,4 +159,4 @@ def manage_product(id):
       db.session.commit()
       flash("Details Updated Suceesfully")
       return redirect(url_for('products_page'))
-   return render_template('prodinfo.html', product=product)
+   return render_template('prodinfo.html', product=product,title="Product Details")
