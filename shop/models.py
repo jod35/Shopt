@@ -44,7 +44,9 @@ class Product(db.Model):
     code1=db.Column(db.String(255),nullable=False)
     code2=db.Column(db.String(255),nullable=False)
     code3=db.Column(db.String(255),nullable=False)
+    image_url=db.Column(db.Text(),nullable=False)
     seller_id=db.Column(db.Integer(),db.ForeignKey('user.id'))
+
     def __repr__(self):
         return 'product {}'.format(self.name)
 

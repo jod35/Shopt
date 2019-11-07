@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <title>Shop |{{title}}</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Shop</h1>
+        <a href="{{url_for('user_dashboard')}}">Back</a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="form">
+            <h3>Search A Product</h3>
+            <input type="text" name="search" id="" class="form-control">
+            <br>
+            <button type="submit" class="mybtn btn-primary btn">Search</button>
+        </div>
+
+           <table class="table table-striped table-inverse table-responsive">
+    <thead class="thead-inverse">
+        <tr>
+            <th>Product Name</th>
+            <th>Cost Price</th>
+            <th>selling Price</th>
+            <th>MarkUp</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row"><input type="text" name="name" id="" class="form-control"></td>
+                <td scope="row"><input type="text" name="cost_price" id="" class="form-control"></td>
+                <td scope="row"><input type="text" name="selling_price" id="" class="form-control" disabled></td>
+                <td scope="row"><input type="text" name="markup" id="" class="form-control"></td>
+                <td><button class="mybtn btn">Save</button></td> 
+               
+            </tr>
+        </tbody>
+</table>
+    </div>
+</body>
+</html>

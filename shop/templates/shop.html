@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="products">
+    {% for p in products %}
+        <div class="card">
+        <img class="card-img-top" src="{{p.image_url}}" alt="" width="200" height="50">
+        <div class="card-body">
+            <h4 class="card-title">{{p.name}}</h4>
+            <p class="card-text">{{p.discount}}% off</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock body %}
