@@ -2,6 +2,7 @@ from shop import db,login_manager,app
 from flask_migrate import Migrate
 from flask_login import UserMixin
 
+
 migrate=Migrate(app,db)
 login_manager.login_view='login'
 
