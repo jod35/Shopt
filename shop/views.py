@@ -175,6 +175,19 @@ def change_prices():
    return render_template('prices.html')
 
 
-@app.route('/shop/categories')
+@app.route('/shop/categories',methods=['GET','POST'])
 def add_category():
+  name=request.form.get('name')
+  password=request.form.get('password')
+
+  if password=current_user.password:
+    new_category=Category(name=name,creator=current_user)
+    db.session.add(new_category)
+    db.session.commit()
+    flash("Item Category Added Successfully")
+    return redirect(url_for('add_category'))
+  else:
+    flash("Please Enter Correct Password")
+    return redirect(url_for('add_category'))
+
   return render_template('categories.html')
