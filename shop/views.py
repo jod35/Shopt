@@ -127,21 +127,21 @@ def add_product():
 
 # suppliers page
 
-
+@login_required
 @app.route('/shop/suppliers')
 def suppliers_page():
    return render_template('suppliers.html', title="Suppliers")
 
 # suppliers page
 
-
+@login_required
 @app.route('/shop/suppliers/add')
 def add_supplier():
    countries = ['Uganda', 'Kenya', 'Tanzania', 'Mozambique',
                 'USA', 'Spain', 'Madagascar', 'Egypt', 'UK']
    return render_template('addsupplier.html', countries=countries, title="Add Supplier")
 
-
+@login_required
 @app.route('/shop/products/manage', methods=['GET', 'POST'])
 def manage_products():
    search = request.form.get('search')
@@ -151,6 +151,7 @@ def manage_products():
 
 
 #update the product information
+@login_required
 @app.route('/shop/products/manage/<int:id>', methods=['GET', 'POST'])
 def manage_product(id):
    product = Product.query.get_or_404(id)
@@ -169,25 +170,26 @@ def manage_product(id):
    return render_template('prodinfo.html', product=product,title="Product Details")
 
 #for all price changes
+@login_required
 @app.route('/shop/prices',methods=['GET', 'POST'])
 def change_prices():
    search=request.form.get('search')
    return render_template('prices.html')
 
 
-@app.route('/shop/categories',methods=['GET','POST'])
+@login_required
+@app.route('/shop/categories')
 def add_category():
-  name=request.form.get('name')
-  password=request.form.get('password')
-
-  if password=current_user.password:
-    new_category=Category(name=name,creator=current_user)
-    db.session.add(new_category)
-    db.session.commit()
-    flash("Item Category Added Successfully")
-    return redirect(url_for('add_category'))
-  else:
-    flash("Please Enter Correct Password")
-    return redirect(url_for('add_category'))
-
   return render_template('categories.html')
+
+
+@login_required
+@app.route('/shop/categories/add',methods=['POST'])
+def create_category():
+  name =request.form.get('name')
+  new_category=Category(name=name, creator=current_user)
+  db.session.add(new_category)
+  db.session.commit()
+  flash('New Category Created Successfully!!')
+  return redirect(url_for('add_category'))
+  
