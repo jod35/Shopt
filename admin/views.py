@@ -1,5 +1,5 @@
 from shop import db,app,login_manager,bcrypt
-from shop.models import User,Supplier,Product,Admin
+from shop.models import User,Product,Admin
 from flask import render_template,request,redirect,url_for
 from flask_login import login_user,login_required,logout_user
 

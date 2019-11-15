@@ -1,6 +1,7 @@
 from shop import db,login_manager,app
 from flask_migrate import Migrate
 from flask_login import UserMixin
+from datetime import datetime
 
 
 migrate=Migrate(app,db)
@@ -26,6 +27,8 @@ class User(db.Model,UserMixin):
     location=db.Column(db.String(40),nullable=False)
     password=db.Column(db.String(255),unique=True)
     products=db.relationship('Product',backref='seller',lazy=True)  
+    transactions=db.relationship('Transaction',backref='actor',lazy=True)
+    categories=db.relationship('Category',backref='creator',lazy=True)
     
 
     def __repr__(self):
@@ -46,19 +49,32 @@ class Product(db.Model):
     code2=db.Column(db.String(255),nullable=False)
     code3=db.Column(db.String(255),nullable=False)
     image_url=db.Column(db.Text(),nullable=False)
-    seller_id=db.Column(db.Integer(),db.ForeignKey('user.id'))
+    user_id=db.Column(db.Integer(),db.ForeignKey('user.id')) #the seller
 
     def __repr__(self):
         return 'product {}'.format(self.name)
 
-class Supplier(db.Model):
+class Transaction(db.Model):
+    transaction_id=db.Column(db.Integer(),primary_key=True)
+    user_id=db.Column(db.Integer,db.ForeignKey('user.id'))
+    d_of_occurence=db.Column(db.DateTime(),default=datetime.utcnow)
+
+    def __repr__(self):
+        return "transaction {}".format(self.transaction_id)
+
+class Unit(db.Model):
     id=db.Column(db.Integer(),primary_key=True)
-    name=db.Column(db.String(60),nullable=True)
-    type=db.Column(db.String(80),nullable=False)
-    email=db.Column(db.String(90),nullable=False)
-    contact=db.Column(db.String(20),nullable=False)
-    address=db.Column(db.Text,nullable=False)
-    nationality=db.Column(db.String(20),nullable=False)
+    name=db.Column(db.String(30),nullable=False)
+    date_created=db.Column(db.DateTime(),default=datetime.utcnow)
+
+class Category(db.Model):
+    category_id=db.Column(db.Integer(),primary_key=True)
+    name=db.Column(db.String(40),nullable=False)
+    user_id = db.Column(db.Integer(),db.ForeignKey('user.id'))
+
+    def __repr__(self):
+        return "category {}".format(self.category_id)
+
 
 @login_manager.user_loader
 def load_user(user_id):

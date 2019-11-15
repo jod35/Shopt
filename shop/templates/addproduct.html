@@ -20,17 +20,9 @@
             <label for="type">Product Category</label>
             <select name="category" id="category" class="form-control">
                 <option >Product Category</option>
-                <option value="Food">Food</option>
-                <option value="Toiletries">Toiletries</option>
-                <option value="Laundry">Laundry</option>
-                <option value="Bakery">Bakery</option>
-                <option value="Jewelery">Jewelery</option>
-                <option value="Mechanics">Mechanics</option>
-                <option value="Compting">Computing</option>
-                <option value="Phones">Phones & Accesories</option>
-                <option value="Housing">Housing</option>
-                <option value="Clothing">Clothing</option>
-                <option value="Medical">Medical</option>
+                {%for category in categories%}
+                <option value="{{category.name}}">{{category.name}}</option>
+                {%endfor%}
             </select>
             <br>    
             <label for="name">Name</label>

@@ -1,7 +1,7 @@
 from shop import app, db, bcrypt
 from flask import render_template, request, redirect, flash, url_for
 from flask_login import login_user, login_required, logout_user, current_user
-from .models import User, Product
+from .models import User, Product,Transaction,Unit,Category
 
 
 # the home_page
@@ -80,6 +80,7 @@ def logout():
 @app.route('/shop/products/add', methods=['GET', 'POST'])
 @login_required
 def add_product():
+   categories=Category.query.all() 
    if request.method == 'POST':
       category = request.form.get('category')
       name = request.form.get('name')
@@ -122,7 +123,7 @@ def add_product():
       flash("Product Added Successfully")
       return redirect(url_for('add_product'))
 
-   return render_template('addproduct.html',title="Add A Product To Your Shop")
+   return render_template('addproduct.html',title="Add A Product To Your Shop",categories=categories)
 
 # suppliers page
 
@@ -172,3 +173,8 @@ def manage_product(id):
 def change_prices():
    search=request.form.get('search')
    return render_template('prices.html')
+
+
+@app.route('/shop/categories')
+def add_category():
+  return render_template('categories.html')
