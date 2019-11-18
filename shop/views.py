@@ -28,10 +28,13 @@ def sign_up():
           location=request.form.get('location'),
           password=bcrypt.generate_password_hash(request.form.get('password'))
       )
-      db.session.add(new_user)
-      db.session.commit()
-      flash("Account Created Successfully,You are free to Login")
-      return redirect(url_for('login'))
+      try:
+         db.session.add(new_user)
+         db.session.commit()
+         flash("Account Created Successfully,You are free to Login")
+         return redirect(url_for('login'))
+      except:
+         flash("There has been a little Problem! Check Your Credentials!")
    return render_template('sign.html', title="Create An Account")
 
 # the login page

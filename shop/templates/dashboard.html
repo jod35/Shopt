@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+  
     <link rel="stylesheet" href="{{url_for('static',filename='css/dashboard.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
     <title>Shop |{{title}}</title>
 </head>
 <body>
     <header class="dashboard-header">
         <div class="logo">
-            <a href="{{url_for('user_dashboard')}}"><h1>Shop</h1></H1></a>
+            <a href="{{url_for('buy_products')}}"><h1>Shop</h1></H1></a>
         <a href="{{url_for('logout')}}">Sign Out</a>
         </div>
     </header>
@@ -29,17 +30,11 @@
             </div>
         </div>
         <div class="dashboard-body">
-            {%with messages=get_flashed_messages()%}
-            {% if mesages %}
-            {% for message in messages %}
-                <center>
-                    <div class="flash-message">
-                        {{ message }}
-                    </div>
-                </center>
-            {% endfor %}
-            {% endif %}
-            {%endwith%} 
+            <center>
+                <div class="dash-welcome">
+                    <h3>Dashboard |{{ title }}</h3>
+                </div> 
+            </center>
             {% block content %}
             
             {% endblock content %}

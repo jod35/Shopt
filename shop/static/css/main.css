@@ -3,20 +3,22 @@
 
 }
 body{
-    background-image: url('images/Symbolics-1.jpg');
+    background-image: url('images/a3c0f386ec1dd2a7754c97cbb0c53b66-700.jpg');
 }
 .main-body{
     min-height:500px;
-    padding: 25px;
+    padding: 16px;
 }
 header{
-    background-color: dodgerblue;
+    background-color: rgb(255, 176, 30);
     color: white;
-    padding: 20px;
+    
 }
 header a{
     color: white;
+    margin-top: 20px;
     padding: 20px;
+
 }
 .logo{
     display: flex;
@@ -30,32 +32,47 @@ header a{
 }
 nav{
     text-align: center;
-    background-color: rgb(29, 177, 177);
+    background-color:  rgb(255, 176, 30);
     padding: 12px;
 }
 .index{
-    color: white;
-    padding: 20px;
-    height: 500px;
+ display: flex;
+ padding: 10px;
+ 
 }
 .welcome{
     text-align: center;
     padding: 100px;
-    height:200px;
+    background-color:  rgb(255, 176, 30);
+    color: white;
+   
 }
 .check-out{
-    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 100px;
+    width: 50%;
 }
 
 .mybtn{
-    background-color: dodgerblue;
+    background-color: rgb(255, 176, 30);
+    padding: 20px;
+    border-radius: 7px;
+    margin:10px;
     color: white;
-    border-radius: 16px;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
+.list-group-item a{
+    color: rgb(255, 176, 30);
 }
 
 .mybtn:hover{
-    background-color: rgb(29, 177, 177);
-    color: white;
+   background-color: white;
+   color:rgb(255, 176, 30);
+   border: 2px solid rgb(255, 176, 30);
 }
 .about{
     display: flex;
@@ -71,14 +88,15 @@ nav{
 .form{
     margin: auto;
     width: 400px;
+    text-align: center;
     padding: 20px;
     margin: auto;
     border-radius: 10px;
     color: white;
-    background-color:rgba(30, 143, 255, 0.432);
+    background-color:rgb(255, 176, 30);
 }
 footer{
-    background-color: rgba(30, 143, 255, 0.377);
+    background-color: rgb(255, 176, 30);
     color: white;
     padding: 25px;
 }
@@ -87,19 +105,19 @@ footer{
 }
 
 th{
-    background-color:dodgerblue;
+    background-color:rgb(255, 176, 30);
     border: none;
     color:white;       
 }
 td{
     color: white;
-    background-color: rgba(30, 143, 255, 0.356);
+    background-color: rgb(255, 176, 30);
 }
 li{
 list-style-type: none;
 }
 input{
-    color: dodgerblue;
+    color: rgb(255, 176, 30);
 }
 
 .search{
@@ -108,4 +126,14 @@ input{
 }
 .menu{
     width: 60%;
+}
+
+.form-control{
+    background-color: coral;
+    color: white;
+
+}
+
+.list-group-item{
+    background-color: rgb(255, 176, 30);
 }

@@ -1,29 +1,86 @@
 {% extends "dashboard.html" %}
 {% block content %}
-	<center>
-		<form action="{{url_for('create_category')}}" method="post">
-		<div class="form">
-			    {%with messages=get_flashed_messages()%}
-                {% if messages %}
-                {% for message in messages %}
-                    <center>
-                        <div class="alert alert-success">
-                            {{ message }}
-                        </div>
-                    </center>
-                {% endfor %}
-                {% endif %}
-                {%endwith%} 
-				<h3>Add A Product Category</h3>
-				<p>Category Name</p>
-				<input type="text" name="name" id="">
-				
-				<br><br>
-				<input type="submit" value="Add Category">
-			
-		</form>
+	
+	   
+<form action="{{url_for('add_product')}}" method="post">
+	{%with messages=get_flashed_messages()%}
+	{% if messages %}
+	{% for message in messages %}
+		<center>
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		</center>
+	{% endfor %}
+	{% endif %}
+	{%endwith%} 
+   
+<div class="pform">
+  
+ <div class="first">
+<label for="type">Product Category</label>
+<select name="category" id="category" class="form-control">
+	<option >Product Category</option>
+	{%for category in categories%}
+	<option value="{{category.name}}">{{category.name}}</option>
+	{%endfor%}
+</select>
+<br>    
+<label for="name">Name</label>
+<input type="text" name="name" id="name" class="form-control" required placeholder="Product Name">
+<label for="type">Type</label>
 
+<select name="comm_type" id="comm_type" class="form-control" required>
+	<option >Imported or Local</option>
+	<option value="Local">Local</option>
+	<option value="Imported">Imported</option>
+</select>
+<label for="cost_price">Cost Price</label>
+<input type="number" name="cost_price" id="cost_price" required class="form-control" placeholder="UGX 0.0000">
+
+<label for="markup">MarkUp</label>
+<input type="number" name="markup" id="markup" required class="form-control" placeholder="0.0000%">
+
+<label for="discount">Discount</label>
+<input type="number" name="discount" id="discount" required class="form-control" placeholder="Discount">
+
+
+
+<label for="password">Stock</label>
+<input type="number" name="stock" id="stock" class="form-control" required placeholder="0.0000">
+
+
+ </div>
+ <!-- flexed form -->
+ <div class="second">
+	<div class="first">
+	<label for="unit">Product Unit</label>
+	<select name="tax" id="tax" class="form-control" required>
+		<option >TAX </option>
+		<option value="Local">Tax</option>
+		<option value="Imported">VAT_18%</option>
+	</select>
+   <br>
+   <h4>Product Barcodes</h4>
+   <label for="name">Bar Code 1</label>
+   <input type="text" name="code1" id="code1" required class="form-control" placeholder="Bar Code 1">
+
+   <label for="name">Bar Code 2</label>
+   <input type="text" name="code2" id="code2"  required class="form-control" placeholder="Bar Code 2">
+   
+   <label for="name">Barcode 3</label>
+   <input type="text" name="code3" id="code3" required class="form-control" placeholder="Barcode 3">
+   <label for="image_url">Image URL</label>
+   <input type="text" name="image_url" id="image_url" class="form-control" placeholder="Paste Image URL HERE ">
+   <center><input type="submit" value="Add Product" class=" mybtn btn"></center>
 	</div>
-	</center>
+ </div>
+</div>
+
+
+ 
+
+
+</form>
 {% endblock content %}
 

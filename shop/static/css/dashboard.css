@@ -8,22 +8,21 @@ background-image:url('images/Symbolics-1.jpg');
     height: 100px;
 }
 .dashboard{
-    min-height: 500px;
+    min-height:100vh;
     background-color: rgba(255, 255, 255, 0.404);
     display: flex;
 }
 .options{
     width:30%;
-    background-color: rgba(30, 143, 255, 0.295);
+    background-color: rgb(255, 176, 30);
 }
-.list-group-item{
-    background-color: rgba(30, 143, 255, 0.288);
-}
+
 .options a{
-    color: white;
+    color: rgb(255, 176, 30);
 }
 .options a:hover{
-    background-color: dodgerblue;
+    background-color: rgb(255, 176, 30);
+    color: white;
     text-decoration: none;
     font-weight: bolder;
 }
@@ -40,16 +39,15 @@ background-image:url('images/Symbolics-1.jpg');
 }
 .actions{
     margin-left: 300px;
-    background-color: rgba(30, 143, 255, 0.13);
     width: 400px;
 }
 .actions a{
     color: white;
 }
 .actions a:hover{
-    background-color: dodgerblue;
+    background-color: rgb(255, 176, 30);
     font-weight: bolder;
-color: white;
+    color: white;
 }
 
 .pform{
@@ -60,8 +58,13 @@ color: white;
     margin-left: 200px;
     border-radius: 10px;
     color: white;
-    background-color:rgba(30, 143, 255, 0.164);
+    background-color:rgb(255, 176, 30)  ;
 }
 .second{
     margin-left: 20px;
+}
+.dash-welcome{
+    background-color: rgb(255, 176, 30);
+    text-align: center;
+    color: white;
 }
