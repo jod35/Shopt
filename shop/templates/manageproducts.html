@@ -23,8 +23,7 @@
                     <th>Stock</th>
                   </tr> 
                 </thead>
-        {% if results %}
-        {% for res in results %}
+        
         <tbody>
                 <td>pdt{{ res.id }}</td>
                 <td>{{ res.name }}</td>
@@ -34,12 +33,12 @@
                 <td><a href="/shop/products/manage/{{res.id}}" class="btn mybtn">Manage</a></td>
                 
         </tbody>
-       {% endfor %}
+
         </table>
         <br><br>
-        {%else%}
+
         <b><p>Please Use A correct Name</p></b>
-       {% endif %}
+       
      
 </div>
 {% endblock content %}

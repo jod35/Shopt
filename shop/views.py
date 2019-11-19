@@ -1,7 +1,7 @@
 from shop import app, db, bcrypt
 from flask import render_template, request, redirect, flash, url_for
 from flask_login import login_user, login_required, logout_user, current_user
-from .models import User, Product,Transaction,Unit,Category
+from .models import User, Product,Transaction,Unit,Category,Supplier
 from datetime import datetime
 
 
@@ -149,9 +149,9 @@ def add_supplier():
 @app.route('/shop/products/manage', methods=['GET', 'POST'])
 def manage_products():
    search = request.form.get('search')
-   results = Product.query.filter_by(name=search).first()
+   res = Product.query.filter_by(name=search).first()
 
-   return render_template('manageproducts.html', results=results,title="Manage Product")
+   return render_template('manageproducts.html', res=res,title="Manage Product")
 
 
 @app.route('/search',methods=['POST'])
@@ -204,3 +204,19 @@ def create_category():
   flash('New Category Created Successfully!!')
   return redirect(url_for('add_category'))
   
+
+@login_required
+@app.route('/shop/suppliers/create',methods=['POST'])
+def method_name():
+   name=request.form.get('name')
+   stype=request.form.get('stype')
+   email=request.form.get('email')
+   contact=request.form.get('contact')
+   nationality=request.form.get('nationality')
+
+   new_supplier=Supplier(name=name,stype=stype,email=email,nationality=nationality)
+   db.session.add(new_supplier)
+   db.session.commit()
+   flash("New Supplier has been created successfully")
+   return redirect('suppliers_page')
+   

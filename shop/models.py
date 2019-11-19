@@ -71,7 +71,7 @@ class Category(db.Model):
     category_id=db.Column(db.Integer(),primary_key=True)
     name=db.Column(db.String(40),nullable=False)
     user_id = db.Column(db.Integer(),db.ForeignKey('user.id'))
-
+    
     def __repr__(self):
         return "category {}".format(self.category_id)
 
@@ -82,6 +82,7 @@ class Supplier(db.Model):
     email=db.Column(db.String(30),nullable=False)
     contact=db.Column(db.String(30),nullable=False)
     address=db.Column(db.String(100),nullable=False)
+    nationality=db.Column(db.String(100),nullable=False)
 
     def __repr__(self):
         return "supplier {}".format(self.name)

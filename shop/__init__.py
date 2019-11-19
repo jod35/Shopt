@@ -15,6 +15,7 @@ login_manager.init_app(app)
 bcrypt=Bcrypt(app)
 migrate=Migrate(app,db)
 
+login_manager.login_view ='login'
 
 
 from shop import views
