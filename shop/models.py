@@ -8,6 +8,13 @@ migrate=Migrate(app,db)
 login_manager.login_view='login'
 
 #many to many realtioship of user and a suppier
+relationship_table=db.Table(
+    'relationship_table',
+    db.Column('supplier_id',db.Integer(),db.ForeignKey('supplier.id'),nullable=False),
+    db.Column('user_id',db.Integer(),db.ForeignKey('user.id'),nullable=False),
+    db.PrimaryKeyConstraint('supplier_id','user_id')
+
+)
 
 class Admin(db.Model,UserMixin):
     id=db.Column(db.Integer(),primary_key=True)
@@ -29,6 +36,8 @@ class User(db.Model,UserMixin):
     products=db.relationship('Product',backref='seller',lazy=True)  
     transactions=db.relationship('Transaction',backref='actor',lazy=True)
     categories=db.relationship('Category',backref='creator',lazy=True)
+    suppliers=db.relationship('Supplier',secondary=relationship_table,backref='suppliers')
+
     
 
     def __repr__(self):
@@ -36,7 +45,7 @@ class User(db.Model,UserMixin):
 class Product(db.Model):
     id=db.Column(db.Integer(),primary_key=True)
     category=db.Column(db.String(255),nullable=False)
-    name=db.Column(db.String(255),nullable=False,unique=True)
+    name=db.Column(db.String(255),nullable=False)
     comm_type=db.Column(db.String(255),nullable=False)
     cost_price=db.Column(db.Text,nullable=False)
     markup=db.Column(db.Text,nullable=False)
@@ -82,7 +91,7 @@ class Supplier(db.Model):
     email=db.Column(db.String(30),nullable=False)
     contact=db.Column(db.String(30),nullable=False)
     address=db.Column(db.String(100),nullable=False)
-
+    nationality=db.Column(db.String(25),nullable=False) 
     def __repr__(self):
         return "supplier {}".format(self.name)
     

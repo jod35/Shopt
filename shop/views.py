@@ -1,7 +1,7 @@
 from shop import app, db, bcrypt
 from flask import render_template, request, redirect, flash, url_for
 from flask_login import login_user, login_required, logout_user, current_user
-from .models import User, Product,Transaction,Unit,Category
+from .models import User, Product,Transaction,Unit,Category,Supplier
 from datetime import datetime
 
 
@@ -33,7 +33,7 @@ def sign_up():
          db.session.add(new_user)
          db.session.commit()
          flash("Account Created Successfully,You are free to Login")
-         return redirect(url_for('login'))
+         return redirect(url_for('sign_up'))
       except:
          flash("There has been a little Problem! Check Your Credentials!")
    return render_template('sign.html', title="Create An Account")
@@ -105,21 +105,19 @@ def add_product():
       disc = (discount / 100) * cost_price
       gross_price = sel_price - disc
 
-      new_product = Product(
-          category=category,
-          name=name,
-          cost_price=cost_price,
-          markup=markup,
-          discount=discount,
-          comm_type=comm_type,
-          stock=stock,
-          tax=tax,
-          code1=code1,
-          code2=code2,
-          code3=code3,
-          selling_price=gross_price,
-          seller=current_user,
-          image_url=image_url
+      new_product=Product(
+         category=category,
+         name=name,
+         comm_type=comm_type,
+         cost_price=cost_price,
+         markup=markup,
+         discount=discount,
+         stock=stock,
+         tax=tax,
+         image_url=image_url,
+         code1=code1,
+         code2=code2,
+         code3=code3
       )
 
       db.session.add(new_product)
@@ -134,7 +132,11 @@ def add_product():
 @login_required
 @app.route('/shop/suppliers')
 def suppliers_page():
-   return render_template('suppliers.html', title="Suppliers")
+   suppliers=Supplier.query.all()
+   count=0
+   for i in suppliers:
+      count+=1
+   return render_template('suppliers.html', title="Suppliers",suppliers=suppliers,count=count)
 
 # suppliers page
 
@@ -143,21 +145,23 @@ def suppliers_page():
 def add_supplier():
    countries = ['Uganda', 'Kenya', 'Tanzania', 'Mozambique',
                 'USA', 'Spain', 'Madagascar', 'Egypt', 'UK']
+
+  
    return render_template('addsupplier.html', countries=countries, title="Add Supplier")
 
 @login_required
 @app.route('/shop/products/manage', methods=['GET', 'POST'])
 def manage_products():
    search = request.form.get('search')
-   results = Product.query.filter_by(name=search).first()
+   res = Product.query.filter_by(name=search).first()
 
-   return render_template('manageproducts.html', results=results,title="Manage Product")
+   return render_template('manageproducts.html', res=res,title="Manage Product")
 
 
-@app.route('/search',methods=['POST'])
-def search_item():
-   if request.method == 'POST':
-      search=Product.query.filter(name.contains(search)).all()
+# @app.route('/search',methods=['POST'])
+# def search_item():
+#    if request.method == 'POST':
+#       search=Product.query.filter(name.contains(search)).all()
 
 
 
@@ -204,3 +208,19 @@ def create_category():
   flash('New Category Created Successfully!!')
   return redirect(url_for('add_category'))
   
+#this view creates a supplier
+@login_required
+@app.route('/shop/suppliers/create',methods=['POST'])
+def create_supplier():
+   name=request.form.get('name')
+   stype=request.form.get('stype')
+   email=request.form.get('email')
+   contact=request.form.get('contact')
+   nationality=request.form.get('nationality')
+   address=request.form.get('address')
+   new_supplier=Supplier(name=name,stype=stype,email=email,nationality=nationality,contact=contact,address=address)
+   db.session.add(new_supplier)
+   db.session.commit()
+   flash("New Supplier has been created successfully")
+   return redirect(url_for('aad_supplier'))
+   

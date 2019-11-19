@@ -1,7 +1,7 @@
 {% extends 'dashboard.html' %}
 {% block content %}
       
-        <form action="" method="post">
+        <form action="{{url_for('create_supplier')}}" method="post">
               {%with messages=get_flashed_messages()%}
                 {% if messages %}
                 {% for message in messages %}
