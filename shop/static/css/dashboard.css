@@ -1,5 +1,9 @@
 *{
-    font-family: monospace;
+    font-family: 'Montserrat Alternates',monospace;
+}
+.dashboard-body{
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
 }
 body{
 background-image:url('images/Symbolics-1.jpg');

@@ -30,49 +30,28 @@ header a{
 .logo a:hover{
     color: white;
 }
+.mybtn{
+    background-color: rgb(255, 175, 71);
+    color: white;
+    border: 1px solid white;
+    border-radius: 7px;
+    padding: 10px;
+}
+
+.mybtn:hover{
+    background-color: white;
+    color: tomato;
+}
 nav{
     text-align: center;
     background-color:  rgb(255, 176, 30);
     padding: 12px;
 }
 .index{
- display: flex;
- padding: 10px;
- 
-}
-.welcome{
-    text-align: center;
-    padding: 100px;
-    background-color:  rgb(255, 176, 30);
+    background-color: rgba(255, 179, 80, 0.781);
     color: white;
-   
-}
-.check-out{
-    display: flex;
-    justify-content: space-evenly;
-    padding: 100px;
-    width: 50%;
-}
-
-.mybtn{
-    background-color: rgb(255, 176, 30);
-    padding: 20px;
-    border-radius: 7px;
-    margin:10px;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-
-}
-
-.list-group-item a{
-    color: rgb(255, 176, 30);
-}
-
-.mybtn:hover{
-   background-color: white;
-   color:rgb(255, 176, 30);
-   border: 2px solid rgb(255, 176, 30);
+    padding: 200px;
+    border-bottom-right-radius: 300px;
 }
 .about{
     display: flex;

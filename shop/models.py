@@ -75,6 +75,17 @@ class Category(db.Model):
     def __repr__(self):
         return "category {}".format(self.category_id)
 
+class Supplier(db.Model):
+    id=db.Column(db.Integer(),primary_key=True)
+    name=db.Column(db.String(30),nullable=False)
+    stype=db.Column(db.String(30),nullable=False)
+    email=db.Column(db.String(30),nullable=False)
+    contact=db.Column(db.String(30),nullable=False)
+    address=db.Column(db.String(100),nullable=False)
+
+    def __repr__(self):
+        return "supplier {}".format(self.name)
+    
 
 @login_manager.user_loader
 def load_user(user_id):

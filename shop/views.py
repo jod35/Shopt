@@ -2,6 +2,7 @@ from shop import app, db, bcrypt
 from flask import render_template, request, redirect, flash, url_for
 from flask_login import login_user, login_required, logout_user, current_user
 from .models import User, Product,Transaction,Unit,Category
+from datetime import datetime
 
 
 # the home_page
@@ -148,9 +149,16 @@ def add_supplier():
 @app.route('/shop/products/manage', methods=['GET', 'POST'])
 def manage_products():
    search = request.form.get('search')
-   results = Product.query.filter_by(name=search)
+   results = Product.query.filter_by(name=search).first()
 
-   return render_template('manageproducts.html', results=results)
+   return render_template('manageproducts.html', results=results,title="Manage Product")
+
+
+@app.route('/search',methods=['POST'])
+def search_item():
+   if request.method == 'POST':
+      search=Product.query.filter(name.contains(search)).all()
+
 
 
 #update the product information
@@ -183,7 +191,7 @@ def change_prices():
 @login_required
 @app.route('/shop/categories')
 def add_category():
-  return render_template('categories.html')
+  return render_template('categories.html',datetime=datetime,title="Create A Category")
 
 
 @login_required
