@@ -1,5 +1,5 @@
-flask_login
-flask_bcrypt
+flask
 flask_sqlalchemy
-flask_wtf
+flask_login
 flask_migrate
+pymysql

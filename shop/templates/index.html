@@ -1,39 +1,21 @@
 {% extends 'layout.html' %}
 {% block body %}
-<div class=" index">
-    <div class="welcome">
-        <h1>Welcome To Your Shop </h1>
-    </div>
-    <div class="check-out">
-       <a href="{{url_for('sign_up')}}" class=" mybtn">Sign Up</a>
-       <a href="{{url_for('login')}}" class="mybtn ">Login</a>
-    </div>
-
-</div>
-
-<div class="about">
-    .<div class="card text-left box">
-      <img class="card-img-top" src="holder.js/100px180/" alt="">
-      <div class="card-body">
-        <h4 class="card-title">Supply Products</h4>
-        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis praesentium unde, quod at reprehenderit illum molestiae facilis, ducimus repellat rem maxime. Exercitationem quos, consectetur expedita commodi iusto omnis ut excepturi.</p>
-      </div>
-    </div>
-
-    <div class="card text-left box">
-        <img class="card-img-top" src="holder.js/100px180/" alt="">
-        <div class="card-body">
-          <h4 class="card-title">Buy Products</h4>
-          <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi necessitatibus consectetur distinctio repudiandae ullam. Architecto cupiditate tenetur aperiam reprehenderit quasi laboriosam, omnis labore ducimus explicabo error ex, blanditiis, eaque aut.</p>
+    <div class="container">
+        <div class="left-container">
+           <h1>Welcome to your Shop</h1>
         </div>
-      </div>
-
-      <div class="card text-left box">
-        <img class="card-img-top" src="holder.js/100px180/" alt="">
-        <div class="card-body">
-          <h4 class="card-title">Sell Products</h4>
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat eveniet a doloribus perferendis ratione quis pariatur? Ratione enim tempore ducimus, delectus nesciunt id reprehenderit et architecto cumque dolores, asperiores tenetur.</p>
+        <div class="right-container">
+            <h1>Sign Up</h1>
+            <input type="text" name="name" id="" class="myfield" placeholder="Username">
+            <br><br>
+            <input type="text" name="email" id="" class="myfield" placeholder="Email">
+            <br><br>
+            <input type="password" name="password" id="" class="myfield" placeholder="Password">
+            <br><br>
+            <input type="password" name="confirm" id="" class="myfield" placeholder="Confirm Password">
+            <br><br>
+            <input type="submit" value="Sign Up">
         </div>
-      </div>
-</div>
+    </div>
 {% endblock body %}
+    
